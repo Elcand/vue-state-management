@@ -1,47 +1,32 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script setup>
+import { ref } from "vue";
+
+const red = ref(0);
+const green = ref(0);
+const blue = ref(0);
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <main :style="{ backgroundColor: `rgb(${red}, ${green}, ${blue})` }">
+    <div>
+      <input type="number" placeholder="red" v-model="red" id="" />
+      <input type="number" placeholder="green" v-model="green" id="" />
+      <input type="number" placeholder="blue" v-model="blue" id="" />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main {
+  background-color: rgb(122, 50, 225);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+div {
+  display: flex;
+  flex-direction: column;
 }
 </style>
