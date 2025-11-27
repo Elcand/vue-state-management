@@ -9,8 +9,9 @@
 
 <script setup>
 import GrandChild from "./GrandChild.vue";
+import { useNumberStore } from "@/stores/number";
 
-const { numbers } = defineProps(["numbers"]);
+const { numbers } = useNumberStore();
 </script>
 
 <style scoped></style>
